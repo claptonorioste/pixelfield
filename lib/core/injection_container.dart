@@ -7,7 +7,7 @@ import 'package:get_it/get_it.dart';
 final serviceLocator = GetIt.instance;
 
 Future<void> init() async {
-  serviceLocator.registerFactory(() => GetBottlesUseCase());
+  serviceLocator.registerFactory(() => BottlesUseCase());
   serviceLocator.registerFactory<BottleRepository>(() => BottleDataRepoImpl());
   serviceLocator.registerFactory(() => DriftDataSourceImpl());
 }

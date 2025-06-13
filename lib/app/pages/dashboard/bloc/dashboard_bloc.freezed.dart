@@ -175,7 +175,7 @@ as int,
 /// @nodoc
 mixin _$DashboardState {
 
- int get selectedIndex; List<Bottle> get bottles; bool get isLoading;
+ int get selectedIndex; List<Bottle> get bottles; bool get isLoading; String get errorMessage;
 /// Create a copy of DashboardState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -186,16 +186,16 @@ $DashboardStateCopyWith<DashboardState> get copyWith => _$DashboardStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardState&&(identical(other.selectedIndex, selectedIndex) || other.selectedIndex == selectedIndex)&&const DeepCollectionEquality().equals(other.bottles, bottles)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardState&&(identical(other.selectedIndex, selectedIndex) || other.selectedIndex == selectedIndex)&&const DeepCollectionEquality().equals(other.bottles, bottles)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,selectedIndex,const DeepCollectionEquality().hash(bottles),isLoading);
+int get hashCode => Object.hash(runtimeType,selectedIndex,const DeepCollectionEquality().hash(bottles),isLoading,errorMessage);
 
 @override
 String toString() {
-  return 'DashboardState(selectedIndex: $selectedIndex, bottles: $bottles, isLoading: $isLoading)';
+  return 'DashboardState(selectedIndex: $selectedIndex, bottles: $bottles, isLoading: $isLoading, errorMessage: $errorMessage)';
 }
 
 
@@ -206,7 +206,7 @@ abstract mixin class $DashboardStateCopyWith<$Res>  {
   factory $DashboardStateCopyWith(DashboardState value, $Res Function(DashboardState) _then) = _$DashboardStateCopyWithImpl;
 @useResult
 $Res call({
- int selectedIndex, List<Bottle> bottles, bool isLoading
+ int selectedIndex, List<Bottle> bottles, bool isLoading, String errorMessage
 });
 
 
@@ -223,12 +223,13 @@ class _$DashboardStateCopyWithImpl<$Res>
 
 /// Create a copy of DashboardState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? selectedIndex = null,Object? bottles = null,Object? isLoading = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? selectedIndex = null,Object? bottles = null,Object? isLoading = null,Object? errorMessage = null,}) {
   return _then(_self.copyWith(
 selectedIndex: null == selectedIndex ? _self.selectedIndex : selectedIndex // ignore: cast_nullable_to_non_nullable
 as int,bottles: null == bottles ? _self.bottles : bottles // ignore: cast_nullable_to_non_nullable
 as List<Bottle>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,errorMessage: null == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -239,7 +240,7 @@ as bool,
 
 
 class _DashboardState implements DashboardState {
-  const _DashboardState({this.selectedIndex = 0, final  List<Bottle> bottles = const [], this.isLoading = false}): _bottles = bottles;
+  const _DashboardState({this.selectedIndex = 0, final  List<Bottle> bottles = const [], this.isLoading = false, this.errorMessage = ''}): _bottles = bottles;
   
 
 @override@JsonKey() final  int selectedIndex;
@@ -251,6 +252,7 @@ class _DashboardState implements DashboardState {
 }
 
 @override@JsonKey() final  bool isLoading;
+@override@JsonKey() final  String errorMessage;
 
 /// Create a copy of DashboardState
 /// with the given fields replaced by the non-null parameter values.
@@ -262,16 +264,16 @@ _$DashboardStateCopyWith<_DashboardState> get copyWith => __$DashboardStateCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardState&&(identical(other.selectedIndex, selectedIndex) || other.selectedIndex == selectedIndex)&&const DeepCollectionEquality().equals(other._bottles, _bottles)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardState&&(identical(other.selectedIndex, selectedIndex) || other.selectedIndex == selectedIndex)&&const DeepCollectionEquality().equals(other._bottles, _bottles)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,selectedIndex,const DeepCollectionEquality().hash(_bottles),isLoading);
+int get hashCode => Object.hash(runtimeType,selectedIndex,const DeepCollectionEquality().hash(_bottles),isLoading,errorMessage);
 
 @override
 String toString() {
-  return 'DashboardState(selectedIndex: $selectedIndex, bottles: $bottles, isLoading: $isLoading)';
+  return 'DashboardState(selectedIndex: $selectedIndex, bottles: $bottles, isLoading: $isLoading, errorMessage: $errorMessage)';
 }
 
 
@@ -282,7 +284,7 @@ abstract mixin class _$DashboardStateCopyWith<$Res> implements $DashboardStateCo
   factory _$DashboardStateCopyWith(_DashboardState value, $Res Function(_DashboardState) _then) = __$DashboardStateCopyWithImpl;
 @override @useResult
 $Res call({
- int selectedIndex, List<Bottle> bottles, bool isLoading
+ int selectedIndex, List<Bottle> bottles, bool isLoading, String errorMessage
 });
 
 
@@ -299,12 +301,13 @@ class __$DashboardStateCopyWithImpl<$Res>
 
 /// Create a copy of DashboardState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? selectedIndex = null,Object? bottles = null,Object? isLoading = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? selectedIndex = null,Object? bottles = null,Object? isLoading = null,Object? errorMessage = null,}) {
   return _then(_DashboardState(
 selectedIndex: null == selectedIndex ? _self.selectedIndex : selectedIndex // ignore: cast_nullable_to_non_nullable
 as int,bottles: null == bottles ? _self._bottles : bottles // ignore: cast_nullable_to_non_nullable
 as List<Bottle>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,errorMessage: null == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

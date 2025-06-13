@@ -11,8 +11,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
-import 'package:pixelfield/app/pages/dashboard/dashboard_page.dart' as _i2;
 import 'package:pixelfield/app/pages/bottle_details/bottle_view.dart' as _i1;
+import 'package:pixelfield/app/pages/dashboard/dashboard_page.dart' as _i2;
 import 'package:pixelfield/app/pages/sign_in/sign_in_page.dart' as _i3;
 import 'package:pixelfield/app/pages/splash/splash_page.dart' as _i4;
 import 'package:pixelfield/app/pages/welcome/welcome_page.dart' as _i5;

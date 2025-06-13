@@ -6,5 +6,6 @@ abstract class DashboardState with _$DashboardState {
     @Default(0) int selectedIndex,
     @Default([]) List<Bottle> bottles,
     @Default(false) bool isLoading,
+    @Default('') String errorMessage,
   }) = _DashboardState;
 }

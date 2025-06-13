@@ -26,7 +26,16 @@ class _DashboardPageState extends State<DashboardPage> {
     return BlocProvider(
       create: (context) => DashboardBloc()..add(DashboardEvent.started()),
       child: BlocConsumer<DashboardBloc, DashboardState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state.errorMessage.isNotEmpty) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errorMessage),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             body: _pages[state.selectedIndex],

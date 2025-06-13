@@ -1,5 +1,5 @@
 abstract class Failure {
-  final dynamic message;
+  final String message;
   const Failure(this.message);
 }
 
