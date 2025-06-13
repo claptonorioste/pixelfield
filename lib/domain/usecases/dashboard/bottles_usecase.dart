@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
 import 'package:pixelfield/domain/entities/failure.dart';
 import 'package:pixelfield/core/injection_container.dart';
@@ -16,5 +18,9 @@ class BottlesUseCase {
     } on Exception catch (e) {
       return Left(ErrorMessage(e.toString()));
     }
+  }
+
+  StreamSubscription listenToBottles(onData) {
+    return serviceLocator<BottleRepository>().listenToBottles(onData);
   }
 }
