@@ -5,6 +5,22 @@ class DetailsTab extends StatelessWidget {
   const DetailsTab({super.key, required this.bottle});
   final Bottle bottle;
 
+  Widget _buildDetailRow(String label, String value) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+        ),
+        Text(
+          value,
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -12,139 +28,25 @@ class DetailsTab extends StatelessWidget {
         spacing: 10,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 1),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Distillery',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                bottle.distillery,
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
+          const SizedBox(height: 1),
+          _buildDetailRow('Distillery', bottle.distillery),
+          _buildDetailRow('Region', bottle.region),
+          _buildDetailRow('Country', bottle.country),
+          _buildDetailRow(
+            'Age Statement',
+            bottle.ageStatement.isNotEmpty
+                ? '${bottle.ageStatement} years'
+                : 'N/A',
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Region',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                bottle.region,
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
+          _buildDetailRow('Filled', '${bottle.filled}'),
+          _buildDetailRow('Bottle', '${bottle.bottle}'),
+          _buildDetailRow(
+            'Cask Number',
+            bottle.caskNumber.isNotEmpty ? bottle.caskNumber : 'N/A',
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Country',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                bottle.country,
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Age Statement',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                bottle.ageStatement.isNotEmpty
-                    ? '${bottle.ageStatement} years'
-                    : 'N/A',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Filled',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                '${bottle.filled}',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Bottle',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                '${bottle.bottle}',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Cask Number',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                bottle.caskNumber.isNotEmpty ? bottle.caskNumber : 'N/A',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'ABV',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                '${bottle.abv}%',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Size',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                bottle.size,
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Finish',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                bottle.finish,
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ],
-          ),
+          _buildDetailRow('ABV', '${bottle.abv}%'),
+          _buildDetailRow('Size', bottle.size),
+          _buildDetailRow('Finish', bottle.finish),
         ],
       ),
     );
