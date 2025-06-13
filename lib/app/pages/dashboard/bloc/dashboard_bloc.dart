@@ -16,6 +16,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     on<DashboardEvent>((event, emit) async {
       emit(state.copyWith(errorMessage: ''));
       if (event is _Started) {
+        emit(state.copyWith(isLoading: true));
         _bottlesSubscription = serviceLocator<BottlesUseCase>().listenToBottles(
           (bottles) {
             add(DashboardEvent.getBottles());
@@ -26,7 +27,6 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
         emit(state.copyWith(selectedIndex: event.index));
       }
       if (event is _GetBottles) {
-        emit(state.copyWith(isLoading: true));
         final result = await serviceLocator<BottlesUseCase>().getBottles();
         result.fold(
           (failure) => emit(
