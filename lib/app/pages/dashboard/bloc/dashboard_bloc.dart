@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pixelfield/core/injection_container.dart';
 import 'package:pixelfield/domain/entities/bottle.dart';
-import 'package:pixelfield/domain/usecases/dashboard/get_bottles_usecase.dart';
+import 'package:pixelfield/domain/usecases/dashboard/bottles_usecase.dart';
 
 part 'dashboard_event.dart';
 part 'dashboard_state.dart';
