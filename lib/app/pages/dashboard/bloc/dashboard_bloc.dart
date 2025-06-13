@@ -20,7 +20,6 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
       if (event is _GetBottles) {
         emit(state.copyWith(isLoading: true));
         final result = await serviceLocator<BottleRepository>().getBottles();
-
         result.fold(
           (failure) => emit(state.copyWith(isLoading: false)),
           (bottles) => emit(state.copyWith(bottles: bottles, isLoading: false)),
