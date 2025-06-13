@@ -4,34 +4,17 @@ import 'package:pixelfield/app/widgets/background_container.dart';
 import 'package:pixelfield/core/autoroutes/routes.gr.dart';
 
 @RoutePage()
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  late final Future<void> _navigationFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _navigationFuture = Future.delayed(const Duration(seconds: 2));
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _navigationFuture.then((_) {
-      if (mounted) {
+  Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 2)).then((_) {
+      if (context.mounted) {
         context.router.replace(const WelcomeRoute());
       }
     });
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: BackgroundContainer(
         child: Center(
