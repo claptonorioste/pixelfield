@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pixelfield/app/utils/colors.dart';
 import 'package:pixelfield/app/widgets/background_container.dart';
-import 'package:pixelfield/app/pages/dashboard/widgets/details_tab.dart';
-import 'package:pixelfield/app/pages/dashboard/widgets/history_tab.dart';
-import 'package:pixelfield/app/pages/dashboard/widgets/tasting_note_tab.dart';
+import 'package:pixelfield/app/pages/bottle_details/widgets/details_tab.dart';
+import 'package:pixelfield/app/pages/bottle_details/widgets/history_tab.dart';
+import 'package:pixelfield/app/pages/bottle_details/widgets/tasting_note_tab.dart';
 import 'package:pixelfield/domain/entities/bottle.dart';
 
 @RoutePage()
