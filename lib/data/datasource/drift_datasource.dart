@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:drift/drift.dart';
-import 'package:pixelfield/core/failure.dart';
+import 'package:pixelfield/domain/entities/failure.dart';
 import 'package:pixelfield/data/drift/drift_database.dart';
 import 'package:pixelfield/domain/entities/bottle.dart';
 import 'package:pixelfield/domain/repositories/bottle_repository.dart';

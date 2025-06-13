@@ -1,6 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dartz/dartz.dart';
-import 'package:pixelfield/core/failure.dart';
+import 'package:pixelfield/domain/entities/failure.dart';
 import 'package:pixelfield/core/injection_container.dart';
 import 'package:pixelfield/domain/repositories/sign_in_repositoty.dart';
 
